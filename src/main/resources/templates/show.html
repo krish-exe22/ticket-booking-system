@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header :: head}"></head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<main class="container">
+    <p><a href="/">← Home</a></p><h1 th:text="${show.movieTitle}">Movie</h1>
+    <p th:text="${show.screen + ' · ' + #temporals.format(show.startTime, 'EEE, MMM dd, hh:mm a')}">Show</p>
+    <div class="screen">SCREEN</div>
+    <section class="seats">
+        <span th:each="seat : ${seats}" th:text="${seat.seatNumber}" th:class="${seat.status.name() == 'AVAILABLE'} ? 'seat available' : 'seat booked'">A1</span>
+    </section>
+    <p class="muted">For full booking interactions, use the Streamlit UI at <a href="http://localhost:8501">localhost:8501</a>.</p>
+</main>
+<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>

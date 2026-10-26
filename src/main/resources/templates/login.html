@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header :: head}"></head>
+<body><div th:insert="~{fragments/header :: header}"></div>
+<main class="container narrow"><h1>Welcome back</h1><p th:if="${registered}" class="success">Registration successful.</p><p class="muted">Use the Streamlit UI for the complete booking and simulated payment flow.</p><a class="button" href="http://localhost:8501">Open CINÉVAULT</a></main><div th:insert="~{fragments/footer :: footer}"></div></body></html>

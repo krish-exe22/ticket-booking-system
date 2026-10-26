@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header :: head}"></head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<main class="container">
+    <section class="hero"><p class="eyebrow">CINÉVAULT / MOVIE BOOKING</p><h1>Your seat to the extraordinary.</h1><p>Discover movies, showtimes and available seats.</p></section>
+    <h2>Now Showing</h2>
+    <section class="grid">
+        <a class="card" th:each="movie : ${movies}" th:href="@{/movies/{id}(id=${movie.id})}">
+            <div class="poster">🎬</div><h3 th:text="${movie.title}">Movie</h3>
+            <p th:text="${movie.genre + ' · ' + movie.language}">Genre · Language</p>
+            <small th:text="${'★ ' + movie.rating + ' · ' + movie.durationMinutes + ' min'}">Rating</small>
+        </a>
+    </section>
+</main>
+<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>

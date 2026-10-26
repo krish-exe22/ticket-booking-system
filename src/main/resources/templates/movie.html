@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header :: head}"></head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<main class="container">
+    <p><a href="/">← All movies</a></p>
+    <section class="hero compact"><p class="eyebrow">MOVIE DETAILS</p><h1 th:text="${movie.title}">Movie</h1><p th:text="${movie.genre + ' · ' + movie.language + ' · ' + movie.durationMinutes + ' min · ★ ' + movie.rating}">Details</p></section>
+    <h2>Showtimes</h2>
+    <section class="grid">
+        <a class="card" th:each="show : ${shows}" th:href="@{/shows/{id}(id=${show.id})}">
+            <h3 th:text="${show.screen}">Screen</h3><p th:text="${#temporals.format(show.startTime, 'EEE, MMM dd, yyyy')}">Date</p>
+            <p th:text="${#temporals.format(show.startTime, 'hh:mm a')}">Time</p><strong th:text="'₹' + ${show.price}">₹250</strong>
+            <small th:text="${show.availableSeats} + ' seats available'">Available</small>
+        </a>
+    </section>
+    <p th:if="${#lists.isEmpty(shows)}">No shows available for this movie.</p>
+</main>
+<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>

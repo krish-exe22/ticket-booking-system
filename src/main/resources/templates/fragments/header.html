@@ -1,0 +1,14 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${pageTitle ?: 'CineBook'}">CineBook</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</th:block>
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="/" class="logo">Cine<span>Book</span></a>
+            <nav><a href="/">Home</a><a href="/register">Register</a><a href="/login">Login</a></nav>
+        </div>
+    </header>
+</th:block>

@@ -1,0 +1,7 @@
+target/
+__pycache__/
+.venv/
+*.py[cod]
+.idea/
+.vscode/
+*.iml
